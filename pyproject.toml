@@ -1,0 +1,25 @@
+[project]
+name = "uv-workspaces-example"
+version = "0.1.0"
+description = "Root project"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # Internal libraries/packages
+    "data-ingest",
+    "data-pre",
+    "my-package-1",
+    "my-package-2",
+    
+    # External Python packages
+    "numpy>=2.2.4",
+]
+
+[tool.uv.sources]
+my-package-1 = { workspace = true }
+my-package-2 = { workspace = true }
+data-ingest = { workspace = true }
+data-pre = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/my_package_1", "packages/my_package_2", "services/data_ingestion", "services/data_preprocessing"]
